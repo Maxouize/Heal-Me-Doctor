@@ -1,3 +1,4 @@
+import { TableComponent } from './../components/table/table.component';
 import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

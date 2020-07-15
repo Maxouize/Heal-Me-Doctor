@@ -2,10 +2,12 @@ import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Tab1Page } from './tab1.page';
+import { PlanningPage } from './planning.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
-import { Tab1PageRoutingModule } from './tab1-routing.module';
+import { PlanningPageRoutingModule } from './planning-routing.module';
+import { TableComponent } from '../components/table/table.component';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 @NgModule({
   imports: [
@@ -13,8 +15,12 @@ import { Tab1PageRoutingModule } from './tab1-routing.module';
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    Tab1PageRoutingModule
+    PlanningPageRoutingModule,
+    NgxDatatableModule
   ],
-  declarations: [Tab1Page]
+  declarations: [
+    PlanningPage,
+    TableComponent
+  ]
 })
-export class Tab1PageModule {}
+export class PlanningPageModule {}
