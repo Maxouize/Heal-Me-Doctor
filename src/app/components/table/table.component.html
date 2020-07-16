@@ -1,18 +1,80 @@
 <ion-content>
   <div class="ion-padding">
 
-    <!-- Theme classes dark, material, bootstrap -->
-    <ngx-datatable 
-      class="material"
-      [limit]="8" 
-      [rows]="rows" 
-      [rowHeight]="50" 
-      [columns]="columns"
-      [columnMode]="'force'" 
-      [sortType]="'multi'" 
-      [headerHeight]="50" 
-      [footerHeight]="50">
-    </ngx-datatable>
+    <ngx-datatable
+        class="material"
+        [limit]="8" 
+        [rows]="rows"
+        [columnMode]="'force'"
+        [sortType]="'multi'" 
+        [headerHeight]="50"
+        [footerHeight]="50"
+        [rowHeight]="'auto'">
 
+      <!-- NOM -->
+      <ngx-datatable-column name="name">
+        <ng-template let-column="column" ngx-datatable-header-template>
+          <span>Nom d'usage</span>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{row.name}}
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- NOM NAISSANCE -->
+      <ngx-datatable-column name="nameBirth">
+        <ng-template let-column="column" ngx-datatable-header-template>
+          <span>Nom de naissance</span>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{row.nameBirth}}
+        </ng-template>
+      </ngx-datatable-column>
+
+      
+      <!-- PRENOM -->
+      <ngx-datatable-column name="firstName">
+        <ng-template let-column="column" ngx-datatable-header-template>
+          <span>Prénom</span>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{row.firstName}}
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- DATE NAISSANCE -->
+      <ngx-datatable-column name="birthDate">
+        <ng-template let-column="column" ngx-datatable-header-template>
+          <span>Date de naissance</span>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{row.firstName}}
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- DERNIER ACCES -->
+      <ngx-datatable-column name="lastAccess">
+        <ng-template let-column="column" ngx-datatable-header-template>
+          <span>Dernier accès</span>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{row.lastAccess}}
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- ACTION -->
+      <ngx-datatable-column name="actions" [sortable]="false">
+        <ng-template let-column="column" ngx-datatable-header-template>
+          <span></span>
+        </ng-template>
+        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+            <ion-button md-icon-button (click)="modifyPatientRecord(row.id)" [disabled]="row['status']==='BLOCKED'">
+              Modifier
+              <ion-icon name="build-outline"></ion-icon>
+            </ion-button>
+        </ng-template>
+      </ngx-datatable-column>
+
+    </ngx-datatable>
   </div>
 </ion-content>

@@ -1,3 +1,4 @@
+import { TableComponent } from './../components/table/table.component';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -7,6 +8,7 @@ import { PatientRecordPage } from './patient-record.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
 import { PatientRecordPageRoutingModule } from './patient-record-routing.module';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 @NgModule({
   imports: [
@@ -16,7 +18,11 @@ import { PatientRecordPageRoutingModule } from './patient-record-routing.module'
     ExploreContainerComponentModule,
     RouterModule.forChild([{ path: '', component: PatientRecordPage }]),
     PatientRecordPageRoutingModule,
+    NgxDatatableModule
   ],
-  declarations: [PatientRecordPage]
+  declarations: [
+    PatientRecordPage,
+    TableComponent
+  ]
 })
 export class PatientRecordPageModule {}

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 export interface Data {
-  movies: string;
+  patientRecord: string;
 }
 
 @Component({
@@ -19,17 +19,24 @@ export class TableComponent implements OnInit {
   constructor(private http: HttpClient) {
     this.columns = [
       { name: 'Name' },
-      { name: 'Company' },
-      { name: 'Genre' }
+      { name: 'BirthDate' },
+      { name: 'Nom du patient' },
+      { name: 'Nom de naissance' },
+      { name: 'Prénom' },
+      { name: 'Date de naissance' },
+      { name: 'Dernier accès' },
+      { name: '' }
     ];
 
-    this.http.get<Data>('../../../assets/planning.json')
+    this.http.get<Data>('../../../assets/patientRecord.json')
       .subscribe((res) => {
-        console.log(res);
-        this.rows = res.movies;
+        this.rows = res.patientRecord;
       });
   }
 
   ngOnInit() {}
 
+  modifyPatientRecord(value) {
+    alert('Dossier patient n° ' + value);
+  }
 }

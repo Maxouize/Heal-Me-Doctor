@@ -8,6 +8,7 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 import { PlanningPageRoutingModule } from './planning-routing.module';
 import { TableComponent } from '../components/table/table.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { NgCalendarModule  } from 'ionic2-calendar';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     FormsModule,
     ExploreContainerComponentModule,
     PlanningPageRoutingModule,
-    NgxDatatableModule
+    NgxDatatableModule,
+    NgCalendarModule
   ],
   declarations: [
     PlanningPage,
